@@ -1,0 +1,252 @@
+{
+    "project": {
+        "name": "ember-cli-debounce-query-params",
+        "description": "Ember CLI addon to update query params with a debounce",
+        "url": "https://github.com/BnitoBzh/ember-cli-debounce-query-params",
+        "version": "0.1.1.7679b3ed"
+    },
+    "files": {
+        "addon/mixins/debounce-query-params.js": {
+            "name": "addon/mixins/debounce-query-params.js",
+            "modules": {},
+            "classes": {
+                "DebounceQueryParamsMixin": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "addon/index.js": {
+            "name": "addon/index.js",
+            "modules": {
+                "Usage": 1,
+                "Basic": 1,
+                "Advanced": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Usage": {
+            "name": "Usage",
+            "submodules": {
+                "Basic": 1,
+                "Advanced": 1
+            },
+            "elements": {},
+            "classes": {
+                "DebounceQueryParamsMixin": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 6,
+            "description": "## Installation\n```shell\nember install ember-cli-debounce-query-params\n```\n\n## Looking for help?\nIf it is a bug [please open an issue on GitHub](https://github.com/BnitoBzh/ember-cli-debounce-query-params/issues)."
+        },
+        "Basic": {
+            "name": "Basic",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Usage",
+            "namespace": "",
+            "file": "addon/index.js",
+            "line": 15,
+            "description": "## Mixin implementation\n\nIn your route-driven controller include the mixin and add the `debounceQueryParamsMixin` object, like in the following example\n\n```javascript\n// controllers/application.js\nimport DebounceQueryParamsMixin from 'ember-cli-debounce-query-params';\n\nexport default Controller.extend(DebounceQueryParamsMixin, {\n  queryParams: ['search'],\n  debounceQueryParams: {\n    search: 500\n  },\n  search: ''\n});\n```\n\n```javascript\n// routes/application.js\nimport Route from '@ember/routing/route';\n\nexport default Route.extend({\n  // ...\n  queryParams: {\n    search: {\n      refreshModel: true\n    }\n  },\n  // ...\n});\n```\n\n```handlebars\n{{! templates/application.hbs}}\n<h2 id=\"title\">Welcome to Ember.js</h2>\n<div>\n  <label>search: {{input value\\=debounceSearch}}</label>\n</div>\n```"
+        },
+        "Advanced": {
+            "name": "Advanced",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Usage",
+            "namespace": "",
+            "file": "addon/index.js",
+            "line": 60,
+            "description": "## Direct Access\n\nWhen search param is typed directly from URL, the debounce param will not be correctly updated, because the `search` property is set in the route handler's `setupController` hook.\nIn order to prevent this, you can set the debounce param in the same route handle\n\n```javascript\n// routes/application.js\nimport Route from '@ember/routing/route';\n\nexport default Route.extend({\n  // ...\n  queryParams: {\n    search: {\n      refreshModel: true\n    }\n  },\n  // ...\n  setupController(controller) {\n    this._super(...arguments);\n    controller.set('debounceSearch', controller.get('search'));\n  }\n  // ...\n});\n```"
+        }
+    },
+    "classes": {
+        "DebounceQueryParamsMixin": {
+            "name": "DebounceQueryParamsMixin",
+            "shortname": "DebounceQueryParamsMixin",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Usage",
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 6,
+            "description": "Inject this mixin in a route-driven controller in order to\nbe able to update query params with a debounce.",
+            "extends": "Mixin"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 14,
+            "description": "Setup the controller for debouncing query param\n  by calling `_setupDebounceQueryParams`",
+            "itemtype": "method",
+            "name": "init",
+            "inherit": "",
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 25,
+            "description": "Update the underneath property hence the query param",
+            "itemtype": "method",
+            "name": "_updateQueryParam",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "param",
+                    "description": "- the name of the property to update",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "- the new value of the property to update",
+                    "type": "String"
+                }
+            ],
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 36,
+            "description": "The default debounce name suffix\n\n*__Example__ : `search` param will generate `debounceSearch` attribute*",
+            "itemtype": "property",
+            "name": "_debounceParamNameSuffix",
+            "access": "protected",
+            "tagname": "",
+            "type": "{String}",
+            "default": "\"debounce\"",
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 47,
+            "description": "Return the original param name from the debounce param name",
+            "itemtype": "method",
+            "name": "_debounceParamName",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "originalParamName",
+                    "description": "- the name of the property to update",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 59,
+            "description": "Return the original param name from the debounce param name",
+            "itemtype": "method",
+            "name": "_originalParamName",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "debounceParamName",
+                    "description": "- the name of the property to update",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 75,
+            "description": "Decounce the query param update",
+            "itemtype": "method",
+            "name": "_paramUpdate",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "- the name of the property to update",
+                    "type": "Object"
+                },
+                {
+                    "name": "debounceParamName",
+                    "description": "- the name of the property to update\n  in the format _debounceParamNameSuffix + ParamName",
+                    "type": "String"
+                }
+            ],
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 92,
+            "description": "Create an observer for each of the properties in debounceQueryParams\nNote : Use setupController in route to force debounce param update\n  when param is set derectly from the URI",
+            "itemtype": "method",
+            "name": "_setupDebounceQueryParams",
+            "access": "protected",
+            "tagname": "",
+            "throws": {
+                "description": "An Ember Error with Ember.debug.assert",
+                "type": "Error"
+            },
+            "class": "DebounceQueryParamsMixin"
+        },
+        {
+            "file": "addon/mixins/debounce-query-params.js",
+            "line": 115,
+            "description": "Check if the provided debounce param is an existing query param",
+            "itemtype": "method",
+            "name": "_checkQueryParamsPresence",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "param",
+                    "description": "- the name of the original query param",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "DebounceQueryParamsMixin"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: inherit",
+            "line": " addon/mixins/debounce-query-params.js:14"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " addon/mixins/debounce-query-params.js:47"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " addon/mixins/debounce-query-params.js:59"
+        }
+    ]
+}

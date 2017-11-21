@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DebounceQueryParamsMixin - ember-cli-debounce-query-params</title>
+    <meta name="description" content="Ember CLI addon to update query params with a debounce">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700' rel='stylesheet' type='text/css'>
+    
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">
+              <img src="../assets/img/ember-logo.png" alt="enterprise logo">
+            <span>cli-debounce-query-params</span>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params" class="fa fa-github github"></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="main-wrapper" class="row">
+        <div id="content-wrapper">
+            <ol class="panel-group" id="sidebar" role="tablist" aria-multiselectable="true">
+                <li class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="sidebar-search-heading">
+                        <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#sidebar-search" aria-expanded="true" aria-controls="collapseOne">
+                        Search
+                      </a>
+                    </h4>
+                    </div>
+                    <div id="sidebar-search" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-search-heading">
+                        <div class="panel-body">
+                            <div id="api-tabview-filter">
+                                <input type="search" id="api-filter" placeholder="Search...">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                    <li class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="sidebar-version-heading">
+                            <h4 class="panel-title">
+                                <a role="button" href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/commits/7679b3ed" target="_blank">
+                                  Tag: 0.1.1.7679b3ed
+                                </a>
+                            </h4>
+                        </div>
+                    </li>
+                <li class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="sidebar-modules-heading">
+                        <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" href="#sidebar-modules" aria-expanded="true" aria-controls="collapseOne">
+                      Modules
+                    </a>
+                  </h4>
+                    </div>
+                    <div id="sidebar-modules" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-modules-heading">
+                        <div class="panel-body">
+                                <ol>
+                                        <li>
+                                            <a href="../modules/Usage.html">Usage</a>
+                                                    <li class="sub"><a href="../modules/Basic.html">Basic</a></li>
+                                                    <li class="sub"><a href="../modules/Advanced.html">Advanced</a></li>
+                                        </li>
+                                </ol>
+                        </div>
+                    </div>
+                </li>
+            
+                <li class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="sidebar-classes-heading">
+                        <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#sidebar-classes" aria-expanded="true" aria-controls="collapseOne">
+                        Classes
+                      </a>
+                    </h4>
+                    </div>
+                    <div id="sidebar-classes" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sidebar-classes-heading">
+                        <div class="panel-body">
+                            <ol>
+                                    <li>
+                                        <a href="../classes/DebounceQueryParamsMixin.html">DebounceQueryParamsMixin</a>
+                                    </li>
+                            </ol>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <div class="content-container">
+                <div class="apidocs">
+                    <div id="docs-main">
+                        <div class="content">
+
+
+<div class="page-header">
+    <h1> <i class="fa fa-bookmark-o" aria-hidden="true"></i> DebounceQueryParamsMixin Class
+            <a class="pull-right file-edit" href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L6" target="_blank">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+    </h1>
+</div>
+
+
+<div class="content-meta">
+
+        <div class="extends">
+            Extends: Mixin
+        </div>
+
+            Module: <a href="../modules/Usage.html">Usage</a>
+
+
+        <div class="foundat">
+            Defined In: <a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L6">addon/mixins/debounce-query-params.js:6</a>
+        </div>
+</div>
+
+
+
+  <div class="class-description">
+  <p>Inject this mixin in a route-driven controller in order to
+be able to update query params with a debounce.</p>
+
+  </div>
+
+<div>
+    <div class="page-section">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#tab_index" aria-controls="tab_index" role="tab" data-toggle="tab">Index</a></li>
+            <li role="presentation"><a href="#tab_methods" aria-controls="tab_methods" role="tab" data-toggle="tab">Methods</a></li>
+
+            <li role="presentation"><a href="#tab_properties" aria-controls="tab_properties" role="tab" data-toggle="tab">Properties</a></li>
+
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+              <form id="options-form" class="form-inline">
+                  Show:
+                  <label for="api-show-inherited" class="checkbox">
+                      <input type="checkbox" id="api-show-inherited" checked>
+                      Inherited
+                  </label>
+          
+                  <label for="api-show-protected" class="checkbox">
+                      <input type="checkbox" id="api-show-protected">
+                      Protected
+                  </label>
+          
+                  <label for="api-show-private" class="checkbox">
+                      <input type="checkbox" id="api-show-private">
+                      Private
+                  </label>
+                  <label for="api-show-deprecated" class="checkbox">
+                      <input type="checkbox" id="api-show-deprecated">
+                      Deprecated
+                  </label>
+          
+              </form>
+
+          <div id="tab_index" role="tabpanel" class="tab-pane active" >
+                  <div class="index-section methods">
+                      <h3>Methods</h3>
+
+                      <ul class="index-list methods extends">
+                              <li class="index-item method protected">
+                                  <a href="#method__checkQueryParamsPresence">_checkQueryParamsPresence</a>
+
+                              </li>
+                              <li class="index-item method protected">
+                                  <a href="#method__debounceParamName">_debounceParamName</a>
+
+                              </li>
+                              <li class="index-item method protected">
+                                  <a href="#method__originalParamName">_originalParamName</a>
+
+                              </li>
+                              <li class="index-item method protected">
+                                  <a href="#method__paramUpdate">_paramUpdate</a>
+
+                              </li>
+                              <li class="index-item method protected">
+                                  <a href="#method__setupDebounceQueryParams">_setupDebounceQueryParams</a>
+
+                              </li>
+                              <li class="index-item method protected">
+                                  <a href="#method__updateQueryParam">_updateQueryParam</a>
+
+                              </li>
+                              <li class="index-item method">
+                                  <a href="#method_init">init</a>
+
+                              </li>
+                      </ul>
+                  </div>
+
+                  <div class="index-section properties">
+                      <h3>Properties</h3>
+
+                      <ul class="index-list properties extends">
+                              <li class="index-item property protected">
+                                  <a href="#property__debounceParamNameSuffix">_debounceParamNameSuffix</a>
+
+                              </li>
+                      </ul>
+                  </div>
+
+
+          </div>
+
+              <div id="tab_methods" role="tabpanel" class="tab-pane">
+                  <div class="item-list">
+  <div id="method__checkQueryParamsPresence" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__checkQueryParamsPresence"></a>
+  		_checkQueryParamsPresence
+  	</span>
+  
+  		<div class="args">
+  			<span class="paren">(</span><ul class="args-list inline commas">
+  				<li class="arg">
+  						<code>param</code>
+  				</li>
+  			</ul><span class="paren">)</span>
+  		</div>
+  		<span class="returns-inline">
+  			<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+  		</span>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L115">addon/mixins/debounce-query-params.js:115</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Check if the provided debounce param is an existing query param</p>
+  </div>
+  
+  		<div class="params">
+  			<h4>Parameters:</h4>
+  
+  			<ul class="params-list">
+  				<li class="param">
+  						<code class="param-name">param</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the original query param</li>
+  </ul>
+  </div>
+  
+  				</li>
+  			</ul>
+  		</div>
+  
+  		<div class="returns">
+  			<h4>Returns:</h4>
+  
+  			<div class="returns-description">
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+  			</div>
+  		</div>
+  
+  </div>
+  <div id="method__debounceParamName" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__debounceParamName"></a>
+  		_debounceParamName
+  	</span>
+  
+  		<div class="args">
+  			<span class="paren">(</span><ul class="args-list inline commas">
+  				<li class="arg">
+  						<code>originalParamName</code>
+  				</li>
+  			</ul><span class="paren">)</span>
+  		</div>
+  		<span class="returns-inline">
+  			<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  		</span>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L47">addon/mixins/debounce-query-params.js:47</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Return the original param name from the debounce param name</p>
+  </div>
+  
+  		<div class="params">
+  			<h4>Parameters:</h4>
+  
+  			<ul class="params-list">
+  				<li class="param">
+  						<code class="param-name">originalParamName</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the property to update</li>
+  </ul>
+  </div>
+  
+  				</li>
+  			</ul>
+  		</div>
+  
+  		<div class="returns">
+  			<h4>Returns:</h4>
+  
+  			<div class="returns-description">
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  			</div>
+  		</div>
+  
+  </div>
+  <div id="method__originalParamName" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__originalParamName"></a>
+  		_originalParamName
+  	</span>
+  
+  		<div class="args">
+  			<span class="paren">(</span><ul class="args-list inline commas">
+  				<li class="arg">
+  						<code>debounceParamName</code>
+  				</li>
+  			</ul><span class="paren">)</span>
+  		</div>
+  		<span class="returns-inline">
+  			<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  		</span>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L59">addon/mixins/debounce-query-params.js:59</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Return the original param name from the debounce param name</p>
+  </div>
+  
+  		<div class="params">
+  			<h4>Parameters:</h4>
+  
+  			<ul class="params-list">
+  				<li class="param">
+  						<code class="param-name">debounceParamName</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the property to update</li>
+  </ul>
+  </div>
+  
+  				</li>
+  			</ul>
+  		</div>
+  
+  		<div class="returns">
+  			<h4>Returns:</h4>
+  
+  			<div class="returns-description">
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  			</div>
+  		</div>
+  
+  </div>
+  <div id="method__paramUpdate" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__paramUpdate"></a>
+  		_paramUpdate
+  	</span>
+  
+  		<div class="args">
+  			<span class="paren">(</span><ul class="args-list inline commas">
+  				<li class="arg">
+  						<code>context</code>
+  				</li>
+  				<li class="arg">
+  						<code>debounceParamName</code>
+  				</li>
+  			</ul><span class="paren">)</span>
+  		</div>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L75">addon/mixins/debounce-query-params.js:75</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Decounce the query param update</p>
+  </div>
+  
+  		<div class="params">
+  			<h4>Parameters:</h4>
+  
+  			<ul class="params-list">
+  				<li class="param">
+  						<code class="param-name">context</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the property to update</li>
+  </ul>
+  </div>
+  
+  				</li>
+  				<li class="param">
+  						<code class="param-name">debounceParamName</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the property to update
+  in the format _debounceParamNameSuffix + ParamName</li>
+  </ul>
+  </div>
+  
+  				</li>
+  			</ul>
+  		</div>
+  
+  
+  </div>
+  <div id="method__setupDebounceQueryParams" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__setupDebounceQueryParams"></a>
+  		_setupDebounceQueryParams
+  	</span>
+  
+  		<span class="paren">()</span>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L92">addon/mixins/debounce-query-params.js:92</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Create an observer for each of the properties in debounceQueryParams
+  Note : Use setupController in route to force debounce param update
+  when param is set derectly from the URI</p>
+  </div>
+  
+  
+  
+  </div>
+  <div id="method__updateQueryParam" class="method item protected">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method__updateQueryParam"></a>
+  		_updateQueryParam
+  	</span>
+  
+  		<div class="args">
+  			<span class="paren">(</span><ul class="args-list inline commas">
+  				<li class="arg">
+  						<code>param</code>
+  				</li>
+  				<li class="arg">
+  						<code>value</code>
+  				</li>
+  			</ul><span class="paren">)</span>
+  		</div>
+  	</span>
+  
+  
+  
+  		<span class="flag protected">protected</span>
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L25">addon/mixins/debounce-query-params.js:25</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Update the underneath property hence the query param</p>
+  </div>
+  
+  		<div class="params">
+  			<h4>Parameters:</h4>
+  
+  			<ul class="params-list">
+  				<li class="param">
+  						<code class="param-name">param</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the name of the property to update</li>
+  </ul>
+  </div>
+  
+  				</li>
+  				<li class="param">
+  						<code class="param-name">value</code>
+  						<span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+  					<div class="param-description"><ul>
+  <li>the new value of the property to update</li>
+  </ul>
+  </div>
+  
+  				</li>
+  			</ul>
+  		</div>
+  
+  
+  </div>
+  <div id="method_init" class="method item">
+  	<span class="method-signature">
+  	<span class="name anchorable-toc">
+  		<a class="fa fa-link toc-anchor" href="#method_init"></a>
+  		init
+  	</span>
+  
+  		<span class="paren">()</span>
+  	</span>
+  
+  
+  
+  
+  
+  
+  
+  	<div class="meta">
+  				<p>
+  				Defined in
+  		<a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L14">addon/mixins/debounce-query-params.js:14</a>
+  		</p>
+  
+  
+  
+  	</div>
+  
+  	<div class="description"><p>Setup the controller for debouncing query param
+  by calling <code>_setupDebounceQueryParams</code></p>
+  </div>
+  
+  
+  
+  </div>
+                  </div>
+              </div>
+
+              <div id="tab_properties" role="tabpanel" class="tab-pane">
+                  <div class="item-list">
+  <div id="property__debounceParamNameSuffix" class="property item protected">
+      <h3 class="name anchorable-toc">
+          <a class="fa fa-link toc-anchor" href="#property__debounceParamNameSuffix"></a>
+          _debounceParamNameSuffix
+      </h3>
+      <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+  
+          <span class="flag protected">protected</span>
+  
+  
+  
+      <div class="meta">
+                  <p>
+                  Defined in
+          <a href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/blob/7679b3ed/addon/mixins/debounce-query-params.js#L36">addon/mixins/debounce-query-params.js:36</a>
+          </p>
+  
+  
+      </div>
+  
+      <div class="description">
+          <p>The default debounce name suffix</p>
+  <p><em><strong>Example</strong> : <code>search</code> param will generate <code>debounceSearch</code> attribute</em></p>
+  
+      </div>
+  
+          <p><br><strong>Default:</strong> &quot;debounce&quot;</p>
+  
+  
+  </div>
+                  </div>
+              </div>
+
+
+      </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/vendor/prettify/prettify-min.js"></script>
+    <script>prettyPrint();</script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/vendor/github-slugger/slugger.js"></script>
+    <script src="../assets/js/yuidoc-bootstrap.js"></script>
+</body>
+</html>
