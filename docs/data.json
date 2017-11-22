@@ -3,7 +3,7 @@
         "name": "ember-cli-debounce-query-params",
         "description": "Ember CLI addon to update query params with a debounce",
         "url": "https://github.com/BnitoBzh/ember-cli-debounce-query-params",
-        "version": "0.1.1.7679b3ed"
+        "version": "0.1.1.c9c3a3a1"
     },
     "files": {
         "addon/mixins/debounce-query-params.js": {
