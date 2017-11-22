@@ -1,0 +1,65 @@
+<div class='debounce'>
+  <div>
+    <h2>Languages</h2>
+
+    {{#if showAlert}}
+      <div class='alert'>
+        <div class='fa fa-times icon-remove' {{action 'toggleProperty' 'showAlert'}}></div>
+        Please fix all the errors below before continuing.
+      </div>
+    {{/if}}
+    <div class="section">
+      {{#unless showCode}}
+        <div class='section-info left first'>
+          <b>500 milliseconds</b> after typing search term, the value is set to the search parameter
+        </div>
+      {{/unless}}
+      {{!BEGIN-SNIPPET index-template}}
+      <div class="form-group has-feedback">
+        <label class="sr-only">Search</label>
+        {{input class='form-control' value=debounceSearch placeholder='Search'}}
+        <span class="fa fa-search form-control-feedback" aria-hidden="true"></span>
+      </div>
+      {{!END-SNIPPET}}
+    </div>
+    <div class="section">
+      {{#unless showCode}}
+        <div class="section-info right last">
+          The languages list will be updated after all debounce executions
+        </div>
+      {{/unless}}
+      <table class="table">
+        <tbody>
+          {{#each model as |language|}}
+            <tr>
+              <td>{{language.name}}</td>
+              <td>{{language.firstVersion}}</td>
+            </tr>
+            {{else}}
+              <tr>
+                <td><em class="text-muted">No language found</em></td>
+              </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer>
+    <a class='show-code bottom' {{action (mut showCode) (if showCode false true)}}><i class='fa fa-code'></i> {{if showCode 'Hide Code' 'Show Code'}} <i class='fa fa-code'></i></a>
+  </footer>
+</div>
+
+{{#unless isRegistered}}
+  <div class='snippet-container {{if showCode 'show'}}'>
+    <ul class='nav nav-tabs' role='tablist'>
+      <li role='presentation' class='active'><a href='#index-route' aria-controls='index-route' role='tab' data-toggle='tab'>routes/index.js</a></li>
+      <li role='presentation'><a href='#index-controller' aria-controls='index-controller' role='tab' data-toggle='tab'>controllers/index.js</a></li>
+      <li role='presentation'><a href='#index-template-hbs' aria-controls='index-template-hbs' role='tab' data-toggle='tab'>templates/index.hbs</a></li>
+    </ul>
+    <div class='tab-content'>
+      <div role='tabpanel' class='tab-pane fade in active' id='index-route'>{{code-snippet name='index-route.js'}}</div>
+      <div role='tabpanel' class='tab-pane fade' id='index-controller'>{{code-snippet name='index-controller.js'}}</div>
+      <div role='tabpanel' class='tab-pane fade' id='index-template-hbs'>{{code-snippet name='index-template.hbs'}}</div>
+    </div>
+  </div>
+{{/unless}}
