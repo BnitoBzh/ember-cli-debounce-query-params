@@ -9,13 +9,16 @@ It has been specifically designed to solve the following issue:
 
 A good example for this is a search input field, when you would like to update the results after the users have finished typing.
 
+
+
+
 ## Installation
 
 ```shell
 $ ember install ember-cli-debounce-query-params
 ```
 
-## Usage
+## Usage ([Demo](https://bnitobzh.github.io/ember-cli-debounce-query-params/))
 In your route-driven controller include the mixin and add the the `debounceQueryParams` property, like in the following example
 
 ```javascript
@@ -67,14 +70,10 @@ Then in your templates reference the debounced variables by prepending the *debo
 </div>
 ```
 
-## Api Documentation
+## Api [Documentation](https://bnitobzh.github.io/ember-cli-debounce-query-params/docs/)
 This addon consists only of a mixin that you can include in your route-driven controllers.
 
 ## Running Tests
 
 * `ember t`
 * `ember t -s`
-
-## TODO
-
-- [ ] Add Documentation
