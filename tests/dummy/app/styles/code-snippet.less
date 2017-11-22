@@ -1,0 +1,59 @@
+@background-color: #fdfdfd;
+
+.snippet-container {
+  background: @background-color;
+  align-self: flex-start;
+  overflow: auto;
+  width: 0;
+  height: 550px;
+  margin: auto 0;
+  -webkit-transition: width 0.35s ease;
+  -moz-transition: width 0.35s ease;
+  -o-transition: width 0.35s ease;
+  transition: width 0.35s ease;
+  border-radius: 3px;
+  padding: 15px 10px;
+  margin-left: -20px;
+  z-index: 0;
+  visibility: hidden;
+
+  &.show {
+    width: 650px;
+    margin-left: -2px;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.15);
+    visibility: visible;
+  }
+
+  .nav-tabs {
+    li > a {
+      color: #8A8A8A;
+      border-radius: 2px 2px 0 0;
+      font-size: 12px;
+    }
+    li.active > a {
+      background-color: @background-color;
+      color: #696969;
+    }
+  }
+  .tab-content {
+    background-color: @background-color;
+    max-height: 480px;
+    overflow: auto;
+    height: 100%;
+
+    > .tab-pane {
+      height: 100%;
+
+      &.active {
+        padding: 15px 0 0;
+      }
+    }
+  }
+  pre {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: @background-color;
+    height: 100%;
+  }
+}

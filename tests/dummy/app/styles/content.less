@@ -1,0 +1,140 @@
+.debounce  {
+  text-align: center;
+  position: relative;
+  background: #ffffff;
+  width: 485px;
+  padding: 40px;
+  border-top: 5px solid @accent-color;
+  border-radius: 3px;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  align-self: center;
+}
+
+.debounce  input {
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  color: #6E6E6E;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s linear 0s;
+  box-shadow: none;
+}
+
+.debounce  .form-group {
+  margin: 0 0 20px;
+}
+
+.debounce  .form-control-feedback {
+  color: #8A8A8A;
+}
+
+input.form-control:focus {
+  color: #333333;
+  border-color: #b9b9b9;
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.debounce  h2 {
+  margin: -15px 0 25px 0;
+  line-height: 1;
+  color: @accent-color;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.debounce  .section {
+  position: relative;
+}
+
+.section-info {
+  text-align: left;
+  position: absolute;
+  padding: 10px;
+  width: 250px;
+  top: 0;
+  font-size: 12px;
+  line-height: 1.75;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section-info.left:before,
+.section-info.right:before,
+.section-info.bottom:before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  display: block;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.debounce  .section-info.left {
+  left: -325px;
+}
+
+.section-info.left:before {
+  right: -10px;
+  border-left: 10px solid rgba(0, 0, 0, 0.6);
+}
+
+.section-info.right {
+  right: -325px;
+}
+
+.section-info.right:before {
+  left: -10px;
+  border-right: 10px solid rgba(0, 0, 0, 0.6);
+}
+
+.section-info.bottom:before {
+  top: -10px;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.8);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: initial;
+}
+
+
+/* Submit button info message */
+
+.section-info.first {
+  top: -60%;
+}
+.section-info.last {
+  top: 30%;
+}
+
+.debounce  footer {
+  background: #eae9e9;
+  width: 485px;
+  padding: 15px 40px;
+  margin: 0 0 -40px -40px;
+  border-radius: 0 0 3px 3px;
+  color: #666666;
+  font-size: 12px;
+  text-align: center;
+}
+
+.debounce  footer a {
+  color: #333333;
+  text-decoration: none;
+}
+
+a.show-code {
+  cursor: pointer;
+}
