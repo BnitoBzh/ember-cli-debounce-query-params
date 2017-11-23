@@ -54,8 +54,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/commits/v1.0.1" target="_blank">
-                                  Tag: v1.0.1
+                                <a role="button" href="https://github.com/BnitoBzh/ember-cli-debounce-query-params/commits/v1.0.2" target="_blank">
+                                  Tag: v1.0.2
                                 </a>
                             </h4>
                         </div>
@@ -216,11 +216,9 @@ export default Mixin.create({
       assert(&#x60;${param} must be in queryParams&#x60;,
         this._checkQueryParamsPresence(param));
 
-      run.schedule(&#x27;actions&#x27;, this, function() {
-        const debounceParamName = this._debounceParamName(param);
-        this.set(debounceParamName, this.get(param));
-        this.addObserver(debounceParamName, this, &#x27;_paramUpdate&#x27;);
-      });
+      const debounceParamName = this._debounceParamName(param);
+      this.set(debounceParamName, this.get(param));
+      this.addObserver(debounceParamName, this, &#x27;_paramUpdate&#x27;);
     }
   },
 

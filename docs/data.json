@@ -3,7 +3,7 @@
         "name": "ember-cli-debounce-query-params",
         "description": "Ember CLI addon to update query params with a debounce",
         "url": "https://github.com/BnitoBzh/ember-cli-debounce-query-params",
-        "version": "v1.0.1"
+        "version": "v1.0.2"
     },
     "files": {
         "addon/mixins/debounce-query-params.js": {
@@ -215,7 +215,7 @@
         },
         {
             "file": "addon/mixins/debounce-query-params.js",
-            "line": 115,
+            "line": 113,
             "description": "Check if the provided debounce param is an existing query param",
             "itemtype": "method",
             "name": "_checkQueryParamsPresence",
