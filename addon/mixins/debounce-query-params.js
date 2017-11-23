@@ -104,11 +104,9 @@ export default Mixin.create({
       assert(`${param} must be in queryParams`,
         this._checkQueryParamsPresence(param));
 
-      run.schedule('actions', this, function() {
-        const debounceParamName = this._debounceParamName(param);
-        this.set(debounceParamName, this.get(param));
-        this.addObserver(debounceParamName, this, '_paramUpdate');
-      });
+      const debounceParamName = this._debounceParamName(param);
+      this.set(debounceParamName, this.get(param));
+      this.addObserver(debounceParamName, this, '_paramUpdate');
     }
   },
 
